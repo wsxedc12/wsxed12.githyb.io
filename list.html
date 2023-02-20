@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列出河流目录</title>
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        #backgroung{
+            margin: 0;
+            padding: 0;
+            border: 0;
+           vertical-align: baseline;
+            height:600px;
+            background-attachment: fixed;
+            background-size: cover;
+
+        }
+        #dl{
+            width:1000px;
+            height:30800px;
+<!--            background-image: linear-gradient(120deg, rgb(107, 182, 204) 0%, rgb(206, 226, 223) 100%);-->
+            position: absolute;
+            top:50px;
+            right:150px;
+            margin:auto;
+            border-radius: 10%;
+        }
+        .text{
+            color:white;
+            display: flex;
+            justify-content: center;
+            font-style: inherit;
+        }
+        .input{
+            height:10%;
+            width:60%;
+        }
+        .but{
+            display: flex;
+            justify-content: center;
+        }
+        .input-box{
+            width:1000px;
+
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<form method="post">
+    <div id="backgroung">
+        <div id="dl">
+            <div class="text"><h1>河流目录</h1></div>
+            <div class="input-box">
+                <table align="center" width="100%" cellspacing="0" cellpadding="0" border="1" bordercolor="#000000"
+                       style="MARGIN:auto;BORDER-COLLAPSE: collapse">
+                    <tbody>
+                    <tr class="th-title">
+                        <td class="hidden-m" width="13%" align="center" class="sstable">流域</td>
+                        <td class="hidden-m" width="13%" align="center" class="sstable">行政区</td>
+                        <td width="16%" align="center" class="sstable">河名</td>
+                        <td class="hidden-m" width="12%" align="center" class="sstable">站名</td>
+                        <td width="10%" align="center" class="sstable">时间</td>
+                        <td width="14%" align="center" class="sstable">水位(米)</td>
+                        <td width="12%" align="center" class="sstable">流量(米<sup>3</sup>/秒)</td>
+                        <td class="hidden-m" width="10%" align="center" class="sstable">警戒水位(米)</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="hdtable" class="ssdiv" style="height: 646px;">
+                    <table style="padding:0px;margin:0px" width="1002" cellspacing="0" cellpadding="0"
+                           bordercolor="#000000" border="1" >
+
+                        <table>
+
+                            {%for value in data_all%}
+                            <tr class="td-show-1">
+                                <td class="hidden-m" width="13%" align="center">{{value[0]}}</td>
+                                <td class="hidden-m" width="13%" align="center">{{value[1]}}</td>
+                                <td class="sstable" width="16%" align="center">{{value[2]}}</td>
+                                <td class="hidden-m" style="color: rgb(0, 35, 225); --darkreader-inline-color: #4594ff;"
+                                    data-darkreader-inline-color="" width="12%" align="center">{{value[3]}}
+                                </td>
+                                <td class="sstable" width="10%" align="center">{{value[4]}}</td>
+                                <td class="sstable" style="color: rgb(0, 35, 225); --darkreader-inline-color: #4594ff;"
+                                    data-darkreader-inline-color="" width="14%" align="center">{{value[5]}}
+                                </td>
+                                <td class="sstable" width="12%" align="center">{{value[6]}}</td>
+                                <td class="hidden-m" width="10%" align="center">{{value[7]}}</td>
+
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                </div>
+            </div>
+        </div>
+
+</form>
+</body>
+
+</html>
